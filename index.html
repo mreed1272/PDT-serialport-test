@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>PDT Test Program</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<body onload="initSerial()">
+	<h1>PDT Software Test</h1>
+	<!-- All of the Node.js APIs are available in this renderer process. -->
+	<p>We are using node <script>document.write(process.versions.node)</script>, Chromium <script>document.write(process.versions.chrome)</script>,
+		and Electron <script>document.write(process.versions.electron)</script>.
+	</p><br/>
+	<div class="flex-contain">
+		<span class="closed" id="gate-status">Gate</span>
+		<span id="race-status">Race</span>
+		<span id="reset-pdt" onclick="resetArduino()">Reset</span>
+		<span id="get-pdt-version">Version</span>
+		<span id="num-lanes">Number of Lanes</span>
+	</div>
+	<div>
+		<ul class="laneTimes">
+			<li>Lane 1: <span class="LEDdisplay" id="lane1">0.000</span> s</li>
+			<li>Lane 2: <span class="LEDdisplay" id="lane2">0.000</span> s</li>
+			<li>Lane 3: <span class="LEDdisplay" id="lane3">0.000</span> s</li>
+		</ul>
+	</div>
+	<form id="serial-display" onsubmit="return false;">
+		Send Command: <input type="text" id="serial-command">
+		<button id="send-serial" onclick="sendSerialForm()">Send Command</button><br/>
+		<p>Serial Ports:
+			<span id="port-names"></span>
+		</p>
+
+		<div id="serial-output"></div>
+	</form>
+
+	<script src="index.js"></script>
+</body>
+
+</html>

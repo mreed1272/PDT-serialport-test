@@ -1,0 +1,31 @@
+{
+  "name": "pdt-serial-port-test",
+  "version": "1.0.0",
+  "description": "A minimal Electron application. Batteries (serialport) included.",
+  "main": "main.js",
+  "scripts": {
+    "install": "node-pre-gyp install --fallback-to-build --runtime=electron --target=1.1.0 --target_arch=x64 --directory=node_modules/serialport/ --update-binary --dist-url=https://atom.io/download/atom-shell",
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electron/electron-quick-start-serialport.git"
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "serialport"
+  ],
+  "author": "MSR",
+"devDependencies": {
+  "electron-prebuilt": "^1.1.0",
+  "node-gyp": "^3.3.1",
+  "node-pre-gyp": "^0.6.28"
+},
+"dependencies": {
+  "serialport": "^3.1.2"
+},
+"engine": "^6.1.0"
+}

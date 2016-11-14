@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: LEDfont;
+    src: url(Segment7Standard.otf);
+}
+
+.flex-contain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+    align-content: center;
+} 
+
+.flex-contain span {
+    border: 1px solid blue;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+#gate-status.closed {
+    border: 5px outset gold;
+    background-color: darkgreen;
+    color: #eee;
+}
+#gate-status.open {
+    border: 5px inset gold;
+    background-color: darkred;
+    color: #eee;
+}
+#race-status {
+    background-color: darkblue;
+    color: #eee;
+    border: 5px solid gold;
+}
+#race-status.ready {
+    border-style: outset;
+    background-color: darkgreen;
+}
+#race-status.racing {
+    border-style: inset;
+    background-color: darkblue;
+}
+#race-status.finished {
+    border-style: groove;
+    background-color: darkred;
+}
+#reset-pdt {
+    user-select: none;
+    border: 5px outset gold;
+    color: #eee;
+    background-color: darkred;
+    cursor: pointer;
+}
+#reset-pdt.clicked {
+    border-style: inset;
+}
+#get-pdt-version {
+    border: 5px outset gold;
+    background-color: darkblue;
+    color: #eee;
+}
+
+#num-lanes {
+    border: 5px outset gold;
+    background-color: darkblue;
+    color: #eee;
+}
+
+.laneTimes {
+    float: left;
+    font-size: 2.5em;
+    list-style: none;
+    width: 55%;
+    margin-right: auto;
+    margin-left: 0;
+}
+.laneTimes li {
+    border: 3px ridge #444;
+    background-color: dimgray;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.LEDdisplay {
+    font-family: LEDfont;
+    color: red;
+    background-color: black;
+    font-size: 2.5em;
+    border: 3px groove #333;
+}
+#serial-display {
+    float: left;
+    width: 40%;
+    margin-left: 20px;
+    margin-right: auto;
+}
+#serial-output {
+    border: 2px groove darkblue;
+    padding: 5px;
+    height: 350px;
+    
+    overflow: scroll;
+}

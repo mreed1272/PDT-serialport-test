@@ -159,9 +159,23 @@ function checkSerialData(data) {
                 var tempLaneNum = RegExp.$1;
                 var tempLaneTime = RegExp.$2;
                 if (laneMask[tempLaneNum - 1] != 1) {
-                    console.log(`Update lane ${tempLaneNum} with time ${tempLaneTime}`);
+                    //console.log(`Update lane ${tempLaneNum} with time ${tempLaneTime}`);
                     document.getElementById(`lane${tempLaneNum}`).innerHTML = tempLaneTime;
+                    laneTimes.push({lane: tempLaneNum, time: tempLaneTime});
                 };
+                if (tempLaneNum == 3){
+                    //console.log(laneTimes);
+                    laneTimes.sort(function(a,b){
+                        return a.time - b.time;
+                    });
+                    //console.log(laneTimes);
+                    var winnerLane = [`lane${laneTimes[0].lane}Li`,`lane${laneTimes[1].lane}Li`,`lane${laneTimes[2].lane}Li`];
+                    //console.log(winnerLane);
+                    document.getElementById(winnerLane[0]).className = "winner1";
+                    document.getElementById(winnerLane[1]).className = "winner2";
+                    document.getElementById(winnerLane[2]).className = "winner3";
+                    
+                }
             };
             break;
     }
@@ -179,11 +193,11 @@ function resetArduino() {
 function updateLaneDisplay() {
     for (var i = 0; i < laneMask.length; i++) {
         var tempLaneId = "lane" + (i+1) + "Li";
-        console.log(`temp lane Id: ${tempLaneId}`);
+//        console.log(`temp lane Id: ${tempLaneId}`);
         switch (laneMask[i]) {
             case 1:
                 document.getElementById(tempLaneId).style = "visibility: hidden;";
-                console.log(`Hiding lane ${i}.`);
+//                console.log(`Hiding lane ${i}.`);
                 break;
             case 0:
                 document.getElementById(tempLaneId).style = "visibility: visible;";
@@ -194,9 +208,20 @@ function updateLaneDisplay() {
 
 function clearDisplay() {
     var tempDisplay = document.getElementsByClassName("LEDdisplay");
-    console.log("LED Display Elements:")
-    console.log(tempDisplay);
+    var tempWinner1 = document.getElementsByClassName("winner1");
+    if (tempWinner1[0] != null){
+        tempWinner1[0].className = "";
+    }
+    var tempWinner2 = document.getElementsByClassName("winner2");
+    if (tempWinner2[0] != null){
+        tempWinner2[0].className = "";
+    }
+    var tempWinner3 = document.getElementsByClassName("winner3");
+    if (tempWinner3[0] != null){
+        tempWinner3[0].className = "";
+    }
     for (var i = 0; i < tempDisplay.length; i++){
         tempDisplay[i].innerHTML = "0.0000";
     };
+    laneTimes.length = 0;
 }

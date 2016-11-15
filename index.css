@@ -82,13 +82,39 @@
     width: 55%;
     margin-right: auto;
     margin-left: 0;
+    min-width: 575px;
 }
 .laneTimes li {
     border: 3px ridge #444;
     background-color: dimgray;
-    margin-left: auto;
+    padding-left: 10px;
     margin-right: auto;
-    text-align: center;
+    text-align: left;
+}
+.laneTimes li.winner1{
+    border: 3px ridge red;
+    background-color: gold;
+}
+.laneTimes li.winner1::after {
+    content: "1st";
+    padding-left: 50px;
+    font-size: 1.5em;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+.laneTimes li.winner2::after {
+    content: "2nd";
+    padding-left: 50px;
+    font-size: 1.5em;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+.laneTimes li.winner3::after {
+    content: "3rd";
+    padding-left: 50px;
+    font-size: 1.5em;
+    padding-right: 20px;
+    padding-top: 10px;
 }
 .LEDdisplay {
     font-family: LEDfont;
@@ -96,6 +122,7 @@
     background-color: black;
     font-size: 2.2em;
     border: 3px groove #333;
+    margin-left: 10px;
 }
 #serial-display {
     float: left;
